@@ -1,7 +1,6 @@
-
 import bcrypt from "bcrypt";
 import { User } from "./user.model";
-import config from "../../config";
+
 
 const createUser = async (data: {
     email: string;

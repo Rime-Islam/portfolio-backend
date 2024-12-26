@@ -13,6 +13,12 @@ const addSkill = async (data: ISkill) => {
   
     return result;
   };
+
+  const deleteSkill = async (_id: string) => {
+    const result = await Skill.findOneAndDelete({ _id });
+    return result;
+  };
+
   const updateSkill = async (_id: string, data: { data: Partial<ISkill> }) => {
     console.log(data);
     const result = await Skill.findOneAndUpdate({ _id }, data.data, {
@@ -21,8 +27,10 @@ const addSkill = async (data: ISkill) => {
     console.log(result);
     return result;
   };
+
   export const skillService = {
     addSkill,
     getAllSkill,
     updateSkill,
+    deleteSkill
   };

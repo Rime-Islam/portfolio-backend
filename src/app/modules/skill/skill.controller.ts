@@ -22,7 +22,16 @@ const addSkill = catchAsync(async (req, res, next) => {
       data: result,
     });
   });
-  
+  const deleteSkill = catchAsync(async (req, res, next) => {
+    const { id } = req.params;
+    const result = await skillService.deleteSkill(id);
+    sendResponce(res, {
+      message: "Skill is deleted Successfully",
+      success: true,
+      statusCode: 201,
+      data: result,
+    });
+  });
   const updateSkill = catchAsync(async (req, res, next) => {
     const result = await skillService.updateSkill(req.params.id, req.body);
     sendResponce(res, {
@@ -37,4 +46,5 @@ const addSkill = catchAsync(async (req, res, next) => {
     addSkill,
     getAllSkill,
     updateSkill,
+    deleteSkill
   };
