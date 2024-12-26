@@ -8,8 +8,13 @@ import router from './app/route';
 
 const app: Application = express()
 const corsOptions = {
-  origin: 'https://empty-oven.surge.sh',
+  origin: [
+    "*",
+    "http://localhost:5173",
+    "http://localhost:3000"
+  ],
   credentials: true,
+  optionsSuccessStatus: 204,
 };
 app.use(cors(corsOptions));
 
