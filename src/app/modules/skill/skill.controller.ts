@@ -4,6 +4,7 @@ import { skillService } from "./skill.service";
 
 const addSkill = catchAsync(async (req, res, next) => {
     const data = req.body;
+   
     const result = await skillService.addSkill(data);
     sendResponce(res, {
       message: "Skill Added",
@@ -24,6 +25,7 @@ const addSkill = catchAsync(async (req, res, next) => {
   });
   const deleteSkill = catchAsync(async (req, res, next) => {
     const { id } = req.params;
+    
     const result = await skillService.deleteSkill(id);
     sendResponce(res, {
       message: "Skill is deleted Successfully",
