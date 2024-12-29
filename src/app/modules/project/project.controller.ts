@@ -4,6 +4,7 @@ import { projectService } from "./project.service";
 
 const addProject = catchAsync(async (req, res, next) => {
     const projectData = req.body;
+   
     const result = await projectService.addProject(projectData);
     sendResponce(res, {
       message: "Project Added Successfully",
@@ -14,7 +15,6 @@ const addProject = catchAsync(async (req, res, next) => {
   });
   
   const getAllProject = catchAsync(async (req, res, next) => {
-    const projectData = req.body;
     const result = await projectService.getAllProject();
     sendResponce(res, {
       message: "Project fetched Successfully",

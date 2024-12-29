@@ -14,7 +14,6 @@ const addBlog = catchAsync(async (req, res, next) => {
   });
   
   const getAllBlog = catchAsync(async (req, res, next) => {
-    console.log("object");
     const result = await blogService.getAllBlog();
     sendResponce(res, {
       message: "Blogs fetched Successfully",
